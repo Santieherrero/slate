@@ -59,6 +59,7 @@ html, body {
   bottom: 0;
   width: $nav-width;
   background-color: $nav-bg;
+  border-right: 1px solid #ccc;
   font-size: 13px;
   font-weight: bold;
 
@@ -72,10 +73,24 @@ html, body {
   }
 
   // This is the logo at the top of the ToC
+  .logo-wrap {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+  }
+
   .logo {
-    display: block;
     max-width: 100%;
     margin-bottom: $logo-margin;
+    margin-top: 15px;
+    margin-left: 35px;
+  }
+  
+  .docs {
+    padding-left: 4px;
+    font-size: 18px;
+    height: 22px;
+    color: #6c6e6f;
+    text-decoration: none;
   }
 
   &>.search {
@@ -193,6 +208,10 @@ html, body {
       line-height: 1.7;
       text-decoration: none;
     }
+  }
+
+  .toc-list-h2.active > li > a {
+    color: white;
   }
 }
 
