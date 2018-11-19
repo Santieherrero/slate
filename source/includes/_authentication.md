@@ -2,7 +2,7 @@
 
 All API requests must be authenticated by including your secret key in the header request:
 
-<span style="text-align: center;display: block;">`Authorization: Token token=ULzr7GuYA6iyo9EyiFrf`</span>
+<span style="text-align: center;display: block;">`Authorization: Token token=nugyUyuzq6nqvm_uiesD`</span>
 
 You can obtain your token at the response from the creation of your account session at API. Your API token carry many privileges, so be sure to keep them secret, do not share your token key in publicly accessible areas such client-side code, and so forth.
 
@@ -17,6 +17,8 @@ require 'net/http'
 url = URI("https://pull.flameanalytics.com/api/v1/sessions")
 
 http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
 request = Net::HTTP::Post.new(url)
 request["Content-Type"] = 'application/json'
@@ -54,9 +56,11 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
- "auth_token": "ULzr7GuYA6iyo9EyiFrf",
+ "auth_token": "nugyUyuzq6nqvm_uiesD",
  "id": ,
- "email": "support@flameanalytics.com"
+ "email": "support@flameanalytics.com",
+ "full_name": "Support",
+ "photo_url": "/defaults/user_small.png"
 }
 ```
 
@@ -78,23 +82,27 @@ password | true | Password of the registered user in the application.
 
 Parameter | Type | Description
 --------- | ------- | -----------
-auth_token | string | Authenticate token for the user 
-id | integer | Unique id of the user
-email | string | Email of the registered user in the application.
+auth_token | String | Authenticate token for the user
+id | Integer | Unique id of the user
+email | String | Email of the registered user in the application.
+full_name | String | Full name of the registered user.
 
-  
+
 ## Delete a session
 
 ```ruby
 require 'uri'
 require 'net/http'
 
-url = URI("http://pull.flameanalytics.dev:4003/api/v1/sessions")
+url = URI("https://pull.flameanalytics.com/api/v1/sessions")
 
 http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
 request = Net::HTTP::Delete.new(url)
 
-request["Authorization"] = 'Token token=ULzr7GuYA6iyo9EyiFrf'
+request["Authorization"] = 'Token token=nugyUyuzq6nqvm_uiesD'
 
 response = http.request(request)
 puts response.read_body
@@ -102,8 +110,8 @@ puts response.read_body
 
 ```shell
 > curl --request DELETE \
-  --url http://pull.flameanalytics.dev:4003/api/v1/sessions \
-  --header 'Authorization: Token token=ULzr7GuYA6iyo9EyiFrf' \
+  --url http://pull.flameanalytics.com/api/v1/sessions \
+  --header 'Authorization: Token token=nugyUyuzq6nqvm_uiesD' \
 ```
 
 ```javascript
@@ -111,7 +119,7 @@ var settings = {
   "url": "https://pull.flameanalytics.com/api/v1/sessions",
   "method": "DELETE",
   "headers": {
-    "Authorization": "Token token=ULzr7GuYA6iyo9EyiFrf", 
+    "Authorization": "Token token=nugyUyuzq6nqvm_uiesD",
   }
 }
 

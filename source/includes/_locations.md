@@ -1,6 +1,6 @@
-# Places
+# Locations
 
-## List of places
+## List of locations
 
 ```ruby
 require 'uri'
@@ -9,6 +9,8 @@ require 'net/http'
 url = URI("https://pull.flameanalytics.com/api/v1/organizations/1/places/")
 
 http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
 request = Net::HTTP::Get.new(url)
 request["Content-Type"] = 'application/json'
@@ -67,16 +69,16 @@ $.ajax(settings).done(function (response) {
 }
 ```
 
-This endpoint retrieves all places.
+Allows obtaining all the locations for the organization that you are pointing and the user has access to it.
 
 ### HTTP Request
 
-`GET https://pull.flameanalytics.com/api/v1/organizations/33/places`
+`GET https://pull.flameanalytics.com/api/v1/organizations/:place_id/places`
 
 ### Query Parameters
 
 Parameter | Required | Description
 --------- | ------- | -----------
-organization_id | true | Identifier of an organization
+place_id | true | Identifier of a location
 page | false | Indicates de number page of list
 per_page | false | Indicates de number of objets per page

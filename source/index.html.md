@@ -7,16 +7,16 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - javascript
 
 toc_footers:
-  - <a href='https://www.dashboard.flameanalytics.com'>Dashboard Flame</a>
+  - <a href='https://dashboard.flameanalytics.com'>Dashboard Flame</a>
   - <a href='#'>Sign out</a>
 
 includes:
   - authentication
   - errors
   - organizations
-  - places
+  - locations
   - presence
-  - kittens
+  - affluence
 
 search: false
 ---
