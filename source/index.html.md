@@ -14,7 +14,9 @@ includes:
   - authentication
   - errors
   - organizations
+  - licenses
   - locations
+  - aps
   - presence
   - affluence
 

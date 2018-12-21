@@ -83,7 +83,7 @@ $.ajax(settings).done(function (response) {
 }
 ```
 
-Allows obtaining a list of the organizations that the user can access and search with params needed.
+Allows obtaining a list of the organizations that the user can access and search with the necessary params for query the search
 
 ### HTTP Request
 
@@ -94,7 +94,7 @@ Allows obtaining a list of the organizations that the user can access and search
 Parameter | Required | Description
 --------- | ------- | -----------
 q | false | Text query to search
-fields | false | Columns for search at database level, require
+fields | false | Columns for search at database level, only permit this columns: 'name'
 page | false | Indicates the number page of list
 per_page | false | Indicates de number of objets per page
 
@@ -104,8 +104,10 @@ per_page | false | Indicates de number of objets per page
 Parameter | Type | Description
 --------- | ------- | -----------
 id | Integer | Identifier of an organization
-name | String | Name of organization
-active_modules | Array | Array with the names of active modules that have the organization
+type | String | Type of the retrieve object
+attributes | Object | Attributes of that organization
+name | String | Name of the organization
+active_modules | Array | Array with the names of active modules that have the organization
 
 ## List of organizations
 
@@ -220,8 +222,10 @@ per_page | false | Indicates de number of objets per page
 Parameter | Type | Description
 --------- | ------- | -----------
 id | Integer | Identifier of an organization
-name | String | Name of organization
-active_modules | Array | Array with the names of active modules that have the organization
+type | String | Type of the retrieve object
+attributes | Object | Attributes of that organization
+name | String | Name of the organization
+active_modules | Array | Array with the names of active modules that have the organization
 
 
 ## Create organizations
@@ -321,7 +325,7 @@ active_modules | Array | Array with the names of active modules that have the or
 require 'uri'
 require 'net/http'
 
-url = URI("https://api.flameanalytics.com/v2/organizations/a69a6230e-0df7-4y6c-b0dc-7501181f1862")
+url = URI("https://api.flameanalytics.com/v2/organizations/b61a560e-0df7-4y7c-b0dc-757108181f1872")
 
 http = Net::HTTP.new(url.host, url.port)
 http.use_ssl = true
@@ -346,7 +350,7 @@ curl --request DELETE \
 ```javascript
 var settings = {
   "crossDomain": true,
-  "url": "https://api.flameanalytics.com/v2/organizations/a69a6230e-0df7-4y6c-b0dc-7501181f1862",
+  "url": "https://api.flameanalytics.com/v2/organizations/b61a560e-0df7-4y7c-b0dc-757108181f1872",
   "method": "DELETE",
   "headers": {
     "Content-Type": "application/json",
@@ -365,15 +369,13 @@ $.ajax(settings).done(function (response) {
 {
   "data":
     {
-      "id": "a69a6230e-0df7-4y6c-b0dc-7501181f1862",
+      "id": "b61a560e-0df7-4y7c-b0dc-757108181f1872",
       "type": "organization",
       "attributes": {
-          "name": "Cosmetic One",
+          "name": "API TEST",
           "active_modules": [
               "affluence",
-              "maps",
-              "occupation",
-              "marketing",
+              "presence",
               "dashboard",
               "places"
           ]
@@ -386,8 +388,7 @@ Permit delete a organization if the user have permissions.
 
 ### HTTP Request
 
-`DELETE https://api.flameanalytics.com/v2/organizations/aa69a6230e-0df7-4y6c-b0dc-7501181f1862`
-
+`DELETE https://api.flameanalytics.com/v2/organizations/ab61a560e-0df7-4y7c-b0dc-757108181f1872`
 
 ### Query parameters
 

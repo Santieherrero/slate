@@ -14,7 +14,7 @@ You can obtain your token at the response from the creation of your account sess
 require 'uri'
 require 'net/http'
 
-url = URI("https://pull.flameanalytics.com/api/v1/sessions")
+url = URI("https://api.flameanalytics.com/v2/sessions")
 
 http = Net::HTTP.new(url.host, url.port)
 http.use_ssl = true
@@ -30,7 +30,7 @@ puts response.read_body
 
 ```shell
 curl --request POST \
-  --url https://pull.flameanalytics.com/api/v1/sessions \
+  --url https://api.flameanalytics.com/v2/sessions \
   --header 'Accept-Encoding: application/json' \
   --header 'Content-Type: application/json' \
   --data '{"user": "support@flameanalytics.com","password": "apipassword"}'
@@ -38,7 +38,7 @@ curl --request POST \
 
 ```javascript
 var settings = {
-  "url": "https://pull.flameanalytics.com/api/v1/sessions",
+  "url": "https://api.flameanalytics.com/v2/sessions",
   "method": "POST",
   "headers": {
     "Accept-Encoding": "application/json",
@@ -68,7 +68,7 @@ Create a new session for a register user on the web application.
 
 ### HTTP Request
 
-`POST https://pull.flameanalytics.com/api/v1/sessions`
+`POST https://api.flameanalytics.com/v2/sessions`
 
 ### Parameters
 
@@ -94,7 +94,7 @@ full_name | String | Full name of the registered user.
 require 'uri'
 require 'net/http'
 
-url = URI("https://pull.flameanalytics.com/api/v1/sessions")
+url = URI("https://api.flameanalytics.com/v2/sessions")
 
 http = Net::HTTP.new(url.host, url.port)
 http.use_ssl = true
@@ -116,7 +116,7 @@ puts response.read_body
 
 ```javascript
 var settings = {
-  "url": "https://pull.flameanalytics.com/api/v1/sessions",
+  "url": "https://api.flameanalytics.com/v2/sessions",
   "method": "DELETE",
   "headers": {
     "Authorization": "Token token=nugyUyuzq6nqvm_uiesD",
@@ -132,7 +132,7 @@ Permanently deletes the authentication token of the user, i.e., the user wants t
 
 ### HTTP Request
 
-`DELETE https://pull.flameanalytics.com/api/v1/sessions`
+`DELETE https://api.flameanalytics.com/v2/sessions`
 
 ### Parameters
 

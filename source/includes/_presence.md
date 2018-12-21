@@ -6,7 +6,7 @@
 require 'uri'
 require 'net/http'
 
-url = URI("https://pull.flameanalytics.com/api/v1/presence/1?from=2017-02-10T0000&to=2017-02-10T2359&res=1h")
+url = URI("https://api.flameanalytics.com/v2/presence/1?from=2017-02-10T0000&to=2017-02-10T2359&res=1h")
 
 http = Net::HTTP.new(url.host, url.port)
 http.use_ssl = true
@@ -22,7 +22,7 @@ puts response.read_body
 
 ```shell
 curl --request GET \
-  --url 'https://pull.flameanalytics.com/api/v1/presence/1?from=2017-02-10T0000&to=2017-02-10T2359&res=1h' \
+  --url 'https://api.flameanalytics.com/v2/presence/1?from=2017-02-10T0000&to=2017-02-10T2359&res=1h' \
   --header 'Authorization: Token token=nugyUyuzq6nqvm_uiesD' \
   --header 'Content-Type: application/json'
 ```
@@ -31,7 +31,7 @@ curl --request GET \
 var settings = {
   "async": true,
   "crossDomain": true,
-  "url": "https://pull.flameanalytics.com/api/v1/presence/1?from=2017-02-10T0000&to=2017-02-10T2359&res=1h",
+  "url": "https://api.flameanalytics.com/v2/presence/1?from=2017-02-10T0000&to=2017-02-10T2359&res=1h",
   "method": "GET",
   "headers": {
     "Content-Type": "application/json",
@@ -131,11 +131,11 @@ You can see different data information, in hours or days, depending on the **'re
 
 ### HTTP Request
 
-- Default: `GET https://pull.flameanalytics.com/api/v1/presence/:market_id?from=:date`
+- Default: `GET https://api.flameanalytics.com/v2/presence/:market_id?from=:date`
 
-- Hours: `GET https://pull.flameanalytics.com/api/v1/presence/:market_id?from=:date&to=:date&res=1h`
+- Hours: `GET https://api.flameanalytics.com/v2/presence/:market_id?from=:date&to=:date&res=1h`
 
-- Days: `GET https://pull.flameanalytics.com/api/v1/presence/:market_id?from=:date&to=:date&res=1d`
+- Days: `GET https://api.flameanalytics.com/v2/presence/:market_id?from=:date&to=:date&res=1d`
 
 
 ### Query parameters
