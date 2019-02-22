@@ -1,12 +1,12 @@
 # Affluence
 
-## Affluence data
+## Index data
 
 ```ruby
 require 'uri'
 require 'net/http'
 
-url = URI("https://pull.flameanalytics.com/api/v1/affluence/1?from=2017-02-10T0000&to=2017-02-10T2359&res=1h")
+url = URI("https://pull.flameanalytics.com/api/v1/affluence/f871274e-49c1-492c-6f5c-e46f505704d6?from=2017-02-10T0000&to=2017-02-10T2359&res=1h")
 
 http = Net::HTTP.new(url.host, url.port)
 http.use_ssl = true
@@ -22,7 +22,7 @@ puts response.read_body
 
 ```shell
 curl --request GET \
-  --url 'https://pull.flameanalytics.com/api/v1/affluence/1?from=2017-02-10T0000&to=2017-02-10T2359&res=1h' \
+  --url 'https://pull.flameanalytics.com/api/v1/affluence/f871274e-49c1-492c-6f5c-e46f505704d6?from=2017-02-10T0000&to=2017-02-10T2359&res=1h' \
   --header 'Authorization: Token token=nugyUyuzq6nqvm_uiesD' \
   --header 'Content-Type: application/json'
 ```
@@ -31,7 +31,7 @@ curl --request GET \
 var settings = {
   "async": true,
   "crossDomain": true,
-  "url": "https://pull.flameanalytics.com/api/v1/affluence/1?from=2017-02-10T0000&to=2017-02-10T2359&res=1h",
+  "url": "https://pull.flameanalytics.com/api/v1/affluence/f871274e-49c1-492c-6f5c-e46f505704d6?from=2017-02-10T0000&to=2017-02-10T2359&res=1h",
   "method": "GET",
   "headers": {
     "Content-Type": "application/json",
@@ -48,7 +48,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-  "id": 1,
+  "id": "f871274e-49c1-492c-6f5c-e46f505704d6",
   "name": "Location 1",
   "visits": 805,
   "hour_visits_avg": 67.08,
@@ -89,7 +89,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-    "id": 1,
+    "id": "f871274e-49c1-492c-6f5c-e46f505704d6",
     "name": "Location 1",
     "visits": 2175,
     "hour_visits_avg": 55.63,

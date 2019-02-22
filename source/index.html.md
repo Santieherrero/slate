@@ -8,17 +8,18 @@ language_tabs: # must be one of https://git.io/vQNgJ
 
 toc_footers:
   - <a href='https://dashboard.flameanalytics.com'>Dashboard Flame</a>
-  - <a href='#'>Sign out</a>
+  - <a href='/users/sign_out'>Sign out</a>
 
 includes:
-  - authentication
-  - errors
-  - organizations
-  - licenses
-  - locations
-  - aps
-  - presence
-  - affluence
+  - { authentication: [] }
+  - { errors: [] }
+  - { organizations: [search, index, create, delete]}
+  - { users: [ index, show, create, update, delete]}
+  - { licenses: [index, create, update]}
+  - { locations: [ search, index, create, delete] }
+  - { "access_points": [index, create, delete] }
+  - { presence: [] }
+  - { affluence: [] }
 
 search: false
 ---

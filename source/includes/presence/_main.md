@@ -1,12 +1,12 @@
 # Presence
 
-## Presence data
+## Index data
 
 ```ruby
 require 'uri'
 require 'net/http'
 
-url = URI("https://api.flameanalytics.com/v2/presence/1?from=2017-02-10T0000&to=2017-02-10T2359&res=1h")
+url = URI("https://api.flameanalytics.com/v2/presence/f871274e-49c1-492c-6f5c-e46f505704d6?from=2017-02-10T0000&to=2017-02-10T2359&res=1h")
 
 http = Net::HTTP.new(url.host, url.port)
 http.use_ssl = true
@@ -22,7 +22,7 @@ puts response.read_body
 
 ```shell
 curl --request GET \
-  --url 'https://api.flameanalytics.com/v2/presence/1?from=2017-02-10T0000&to=2017-02-10T2359&res=1h' \
+  --url 'https://api.flameanalytics.com/v2/presence/f871274e-49c1-492c-6f5c-e46f505704d6?from=2017-02-10T0000&to=2017-02-10T2359&res=1h' \
   --header 'Authorization: Token token=nugyUyuzq6nqvm_uiesD' \
   --header 'Content-Type: application/json'
 ```
@@ -31,7 +31,7 @@ curl --request GET \
 var settings = {
   "async": true,
   "crossDomain": true,
-  "url": "https://api.flameanalytics.com/v2/presence/1?from=2017-02-10T0000&to=2017-02-10T2359&res=1h",
+  "url": "https://api.flameanalytics.com/v2/presence/f871274e-49c1-492c-6f5c-e46f505704d6?from=2017-02-10T0000&to=2017-02-10T2359&res=1h",
   "method": "GET",
   "headers": {
     "Content-Type": "application/json",
@@ -48,7 +48,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-  "id": 1,
+  "id": "f871274e-49c1-492c-6f5c-e46f505704d6",
   "name": "Place 1",
   "passersby": 10706,
   "visits": 830,
@@ -88,7 +88,7 @@ $.ajax(settings).done(function (response) {
 
 ```json
 {
-  "id": 38,
+  "id": "f871274e-49c1-492c-6f5c-e46f505704d6",
   "name": "Place 1",
   "passersby": 24846,
   "visits": 1335,
