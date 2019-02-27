@@ -20,6 +20,7 @@ includes:
   - { "access_points": [index, create, delete] }
   - { presence: [] }
   - { affluence: [] }
+  - { sensors: [ organizations, places ] }
 
 search: false
 ---
