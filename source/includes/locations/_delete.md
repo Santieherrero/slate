@@ -62,7 +62,7 @@ $.ajax(settings).done(function (response) {
 }
 ```
 
-Permit delete a place for the organization that you are pointing and the user has access to it.
+Permits delete a place for the organization that you are pointing and the user has access to it.
 
 ### HTTP Request
 

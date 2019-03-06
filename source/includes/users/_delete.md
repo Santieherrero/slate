@@ -72,7 +72,7 @@ $.ajax(settings).done(function (response) {
 }
 ```
 
-Permit delete a user if the current user have permissions.
+Permits delete a user if the current user have permissions.
 
 ### HTTP Request
 

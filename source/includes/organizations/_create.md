@@ -65,7 +65,7 @@ $.ajax(settings).done(function (response) {
     }
 }
 ```
-Permit create a organization if the user have permissions.
+Permits create an organization if the user have permissions.
 
 ### HTTP Request
 

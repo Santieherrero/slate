@@ -82,7 +82,7 @@ $.ajax(settings).done(function (response) {
 }
 ```
 
-Permit create a user if the current user have permissions
+Permits create a user if the current user have permissions
 
 ### Password
 The password **it's not required for logged partner users**, if you don't set the password at request, this be generated automatically with a random password.

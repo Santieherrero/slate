@@ -79,7 +79,7 @@ $.ajax(settings).done(function (response) {
 }
 ```
 
-Permit update a user if the current user have permissions
+Permits update a user if the current user have permissions
 
 ### Password
 The password **it's not required for logged partner and admin users** at update a user, but it's require for standard users.

@@ -60,7 +60,7 @@ $.ajax(settings).done(function (response) {
 }
 ```
 
-Permit delete a access point for the organization that you are pointing and if the user has access to it.
+Permits delete a access point for the organization that you are pointing and if the user has access to it.
 
 ### HTTP Request
 

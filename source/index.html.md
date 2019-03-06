@@ -21,6 +21,8 @@ includes:
   - { presence: [] }
   - { affluence: [] }
   - { sensors: [ organizations, places ] }
+  - { "mac_blacklists": [index, create, delete] }
+  - { "guest_wifi_users": [search, index] }
 
 search: false
 ---

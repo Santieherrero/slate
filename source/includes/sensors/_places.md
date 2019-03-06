@@ -92,6 +92,7 @@ Allows obtaining a list of sensors per place which the user can access.
 
 Parameter | Required | Description
 --------- | ------- | -----------
+place_id | String | Identification of a place
 page | false | Indicates de number page of list
 per_page | false | Indicates de number of objets per page
 
@@ -108,4 +109,4 @@ type | String | Concrete type of the sensor
 ap_mac | String | Mac of the retrieve object
 last_seen | String | **ISO 8601**, last seen active date and hours
 sensor_health | String | Health of the retireve sensor
-place_id | String | Identification of place
+place_id | String | Identification of a place

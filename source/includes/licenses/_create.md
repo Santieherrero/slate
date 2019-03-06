@@ -62,7 +62,7 @@ $.ajax(settings).done(function (response) {
 }
 ```
 
-Permit create a license for the organization that you are pointing and if the user has access to it.
+Permits create a license for the organization that you are pointing and if the user has access to it.
 
 ### HTTP Request
 

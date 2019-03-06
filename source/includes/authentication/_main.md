@@ -64,7 +64,7 @@ $.ajax(settings).done(function (response) {
 }
 ```
 
-Create a new session for a register user on the web application.
+Creates a new session for a register user on the web application.
 
 ### HTTP Request
 

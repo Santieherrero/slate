@@ -61,7 +61,7 @@ $.ajax(settings).done(function (response) {
 }
 ```
 
-Permit update a license for the organization that you are pointing and if the user has access to it.
+Permits update a license for the organization that you are pointing and if the user has access to it.
 
 ### HTTP Request
 
