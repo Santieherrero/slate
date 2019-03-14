@@ -1,4 +1,4 @@
-## List of market pecos
+## List of counters
 
 ```ruby
 require 'uri'
@@ -68,7 +68,7 @@ $.ajax(settings).done(function (response) {
 }
 ```
 
-Allows obtaining a list of market pecos if the user has access.
+Allows obtaining a list of counters if the user has access.
 
 ### HTTP Request
 
@@ -87,9 +87,9 @@ per_page | false | Indicates de number of objets per page
 
 Parameter | Type | Description
 --------- | ------- | -----------
-id | Integer | Identifier of a market peco
+id | Integer | Identifier of a counter
 type | String | Type of the retrieve object
-attributes | Object | Attributes of that market peco
+attributes | Object | Attributes of that counter
 identifier | String | Identifier of the retrieve object
-mac_address | String | Encrypted mac of the market peco
-ubication | String | Ubication of the market peco
+mac_address | String | Encrypted mac of the counter
+ubication | String | Ubication of the counter

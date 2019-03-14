@@ -23,8 +23,8 @@ includes:
   - { sensors: [ organizations, places ] }
   - { "mac_blacklists": [index, create, delete] }
   - { "guest_wifi_users": [search, index] }
-  - { "market_pecos": [index, create, update, delete] }
-  - { "cameras": [index, show, create, delete] }
+  - { counters: [index, create, update, delete] }
+  - { cameras: [index, show, create, delete] }
   - { analytics: [presence, affluence, conversion] }
 
 search: false

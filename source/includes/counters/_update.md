@@ -1,4 +1,4 @@
-## Update market peco
+## Update counter
 
 ```ruby
 require 'uri'
@@ -60,7 +60,7 @@ $.ajax(settings).done(function (response) {
     }
 }
 ```
-Permits to update a market peco if the user has permissions.
+Permits to update a counter if the user has permissions.
 
 ### HTTP Request
 
@@ -72,8 +72,8 @@ Permits to update a market peco if the user has permissions.
 Parameter | Required | Description
 --------- | ------- | -----------
 place_id | true | Identification of a place
-identifier | false | Indicates the identifier of the market peco
-mac_address | true | Indicates the mac of the market peco
+identifier | false | Indicates the identifier of the counter
+mac_address | true | Indicates the mac of the counter
 ubication | false | Indicates the ubication of the object
 user | false | Indicates the username for accessing the object
 pass | false | Indicates the password associated with the username
@@ -83,9 +83,9 @@ pass | false | Indicates the password associated with the username
 
 Parameter | Type | Description
 --------- | ------- | -----------
-id | Integer | Identifier of a market peco
+id | Integer | Identifier of a counter
 type | String | Type of the retrieve object
-attributes | Object | Attributes of that market peco
+attributes | Object | Attributes of that counter
 identifier | String | Identifier of the retrieve object
-mac_address | String | Encrypted mac of the market peco
-ubication | String | Ubication of the market peco
+mac_address | String | Encrypted mac of the counter
+ubication | String | Ubication of the counter

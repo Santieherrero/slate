@@ -1,4 +1,4 @@
-## Delete market peco
+## Delete counter
 
 ```ruby
 require 'uri'
@@ -52,13 +52,13 @@ $.ajax(settings).done(function (response) {
         "attributes": {
             "identifier": "ident",
             "mac_address": "ac:11:23:de:67:fa",
-            "ubication": "none"
+            "ubication": "exit"
         }
     }
 }
 ```
 
-Permits to delete a mack blacklist if the user has permissions.
+Permits to delete a counter if the user has permissions.
 
 ### HTTP Request
 
@@ -68,16 +68,16 @@ Permits to delete a mack blacklist if the user has permissions.
 
 Parameter | Required | Description
 --------- | ------- | -----------
-id | true | Indicates the market peco identifier
+id | true | Indicates the counter identifier
 
 
 ### Return parameters
 
 Parameter | Type | Description
 --------- | ------- | -----------
-id | Integer | Identifier of a market peco
+id | Integer | Identifier of a counter
 type | String | Type of the retrieve object
-attributes | Object | Attributes of that market peco
+attributes | Object | Attributes of that counter
 identifier | String | Identifier of the retrieve object
-mac_address | String | Encrypted mac of the market peco
-ubication | String | Ubication of the market peco
+mac_address | String | Encrypted mac of the counter
+ubication | String | Ubication of the counter
