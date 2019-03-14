@@ -25,6 +25,7 @@ includes:
   - { "guest_wifi_users": [search, index] }
   - { "market_pecos": [index, create, update, delete] }
   - { "cameras": [index, show, create, delete] }
+  - { analytics: [presence, affluence, conversion] }
 
 search: false
 ---
