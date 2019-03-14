@@ -110,7 +110,7 @@ puts response.read_body
 
 ```shell
 > curl --request DELETE \
-  --url http://pull.flameanalytics.com/api/v1/sessions \
+  --url https://api.flameanalytics.com/v2/sessions \
   --header 'Authorization: Token token=nugyUyuzq6nqvm_uiesD' \
 ```
 

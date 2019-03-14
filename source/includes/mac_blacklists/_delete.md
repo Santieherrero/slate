@@ -60,7 +60,7 @@ Permits delete a mack blacklist if the user have permissions.
 
 ### HTTP Request
 
-`DELETE https://api.flameanalytics.com/v2/mac_blacklist/a12b3a58-118f-4d91-9d62-6fbfc88c9a15`
+`DELETE https://api.flameanalytics.com/v2/mac_blacklist/:place_id`
 
 ### Query parameters
 

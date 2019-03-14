@@ -86,7 +86,7 @@ Allows obtaining a list of sensors per organization which the user can access.
 
 ### HTTP Request
 
-`GET https://api.flameanalytics.com/v2/organizations/7b85c755-aeba-482b-a07a-f375375c33e4/sensors`
+`GET https://api.flameanalytics.com/v2/organizations/:organization_id/sensors`
 
 ### Query parameters
 

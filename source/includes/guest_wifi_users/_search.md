@@ -87,7 +87,7 @@ Allows obtaining a list of guest wifi users which the user can access and search
 
 ### HTTP Request
 
-`GET https://api.flameanalytics.com/v2/places/13b1be27-0d31-4dff-aa11-27ec1d636ab3/guest_wifi/users?age_range='19-25'&date_from=2019-01-09&dato_to=2019-02-09`
+`GET https://api.flameanalytics.com/v2/places/:place_id/guest_wifi/users?age_range='19-25'&date_from=2019-01-09&dato_to=2019-02-09`
 
 ### Query parameters
 

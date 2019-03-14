@@ -70,7 +70,7 @@ Allows obtaining a list of mac blacklists which the user can access.
 
 ### HTTP Request
 
-`GET https://api.flameanalytics.com/v2/places/13b1be27-0d31-4dff-aa11-27ec1d636ab3/mac_blacklist`
+`GET https://api.flameanalytics.com/v2/places/:place_id/mac_blacklist`
 
 ### Query parameters
 
