@@ -67,7 +67,7 @@ Permits delete an organization if the user have permissions.
 
 ### HTTP Request
 
-`DELETE https://api.flameanalytics.com/v2/organizations/ab61a560e-0df7-4y7c-b0dc-757108181f1872`
+`DELETE https://api.flameanalytics.com/v2/organizations/:organization_id`
 
 ### Query parameters
 

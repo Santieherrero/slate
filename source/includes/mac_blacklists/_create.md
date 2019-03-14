@@ -1,4 +1,4 @@
-## Create MacBlacklist
+## Create mac blacklist
 
 ```ruby
 require 'uri'
@@ -62,7 +62,7 @@ Permits create a mac blacklist if the user have permissions.
 
 ### HTTP Request
 
-`POST https://api.flameanalytics.com/v2/places/13b1be27-0d31-4dff-aa11-27ec1d636ab3/mac_blacklist`
+`POST https://api.flameanalytics.com/v2/places/:place_id/mac_blacklist`
 
 
 ### Query parameters
