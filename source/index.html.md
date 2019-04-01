@@ -26,6 +26,7 @@ includes:
   - { counters: [index, create, update, delete] }
   - { cameras: [index, show, create, delete] }
   - { analytics: [presence, affluence, conversion] }
+  - { "sales_imports": [] }
 
 search: false
 ---

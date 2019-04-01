@@ -1,4 +1,4 @@
-## Presence
+<h2 id="presence-analytics">Presence</h2>
 
 ```ruby
 require 'uri'

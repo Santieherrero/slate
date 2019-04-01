@@ -1,4 +1,4 @@
-## Affluence
+<h2 id="affluence-analytics">Affluence</h2>
 
 ```ruby
 require 'uri'
