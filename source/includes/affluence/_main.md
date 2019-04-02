@@ -1,17 +1,16 @@
-# Affluence
+<h1 id="affluence">Affluence</h1>
 
-## Index data
+<h2 id="affluence-index">Index data</h2>
 
 ```ruby
 require 'uri'
 require 'net/http'
 
-url = URI("https://api.flameanalytics.com/v2/affluence/f871274e-49c1-492c-6f5c-e46f505704d6?from=2017-02-10T0000&to=2017-02-10T2359&res=1h")
+url = URI("https://api.flameanalytics.com/v2/organizations/7b85c755-aeba-482b-a07a-f375375c33e4/analytics/affluence?type=average_visits")
 
 http = Net::HTTP.new(url.host, url.port)
-http.use_ssl = true
-http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
+request = Net::HTTP::Get.new(url)
 request = Net::HTTP::Get.new(url)
 request["Content-Type"] = 'application/json'
 request["Authorization"] = 'Token token=nugyUyuzq6nqvm_uiesD'
@@ -21,17 +20,17 @@ puts response.read_body
 ```
 
 ```shell
- curl --request GET \
-  --url 'https://api.flameanalytics.com/v2/affluence/f871274e-49c1-492c-6f5c-e46f505704d6?from=2017-02-10T0000&to=2017-02-10T2359&res=1h' \
+curl --request GET \
+  --url https://api.flameanalytics.com/v2/organizations/7b85c755-aeba-482b-a07a-f375375c33e4/analytics/affluence?type=average_visits \
+  --header 'Accept-Encoding: application/json' \
   --header 'Authorization: Token token=nugyUyuzq6nqvm_uiesD' \
   --header 'Content-Type: application/json'
 ```
 
 ```javascript
 var settings = {
-  "async": true,
   "crossDomain": true,
-  "url": "https://api.flameanalytics.com/v2/affluence/f871274e-49c1-492c-6f5c-e46f505704d6?from=2017-02-10T0000&to=2017-02-10T2359&res=1h",
+  "url": "https://api.flameanalytics.com/v2/organizations/7b85c755-aeba-482b-a07a-f375375c33e4/analytics/affluence?type=average_visits",
   "method": "GET",
   "headers": {
     "Content-Type": "application/json",
@@ -44,113 +43,155 @@ $.ajax(settings).done(function (response) {
 });
 ```
 
-> Response JSON (Hours)
+> Response JSON (Aggregated):
 
 ```json
 {
-  "id": "f871274e-49c1-492c-6f5c-e46f505704d6",
-  "name": "Location 1",
-  "visits": 805,
-  "hour_visits_avg": 67.08,
-  "day_visits_avg": 866,
-  "data": [
-      {
-          "date": "2017-02-10T10:00:00.000Z",
-          "in": 126,
-          "out": 121
-      },
-      {
-          "date": "2017-02-10T11:00:00.000Z",
-          "in": 0,
-          "out": 0
-      },
-      {
-          "date": "2017-02-10T12:00:00.000Z",
-          "in": 58,
-          "out": 74
-      },
-      {
-          "date": "2017-02-10T13:00:00.000Z",
-          "in": 58,
-          "out": 74
-      },
-      {
-          "date": "2017-02-10T14:00:00.000Z",
-          "in": 149,
-          "out": 147
-      },
-      {...},
-      ...
-  ]
-}
-```
-
-> Response JSON (Days)
-
-```json
-{
-    "id": "f871274e-49c1-492c-6f5c-e46f505704d6",
-    "name": "Location 1",
-    "visits": 2175,
-    "hour_visits_avg": 55.63,
-    "day_visits_avg": 725,
     "data": [
-      {
-          "date": "2017-02-10",
-          "in": 866,
-          "out": 867
-      },
-      {
-          "date": "2017-02-11",
-          "in": 1309,
-          "out": 1336
-      },
-      {...},
-      ...
-  ]
+        {
+            "id": "aa5f56e9-dd1a-4c57-ba43-6465068542b8",
+            "type": "kpi",
+            "attributes": {
+                "name": "Place 1",
+                "value": 725
+            },
+            "relationships": {
+                "place": {
+                    "data": {
+                        "id": "11113d50-fdd8-4f5a-8ef1-485cb5fedf04",
+                        "type": "place"
+                    }
+                }
+            }
+        },
+        {
+            "id": "baac906d-93ed-43d7-a5b0-03a7f3961ffe",
+            "type": "kpi",
+            "attributes": {
+                "name": "Place 2",
+                "value": 838
+            },
+            "relationships": {
+                "place": {
+                    "data": {
+                        "id": "111495d3-fb83-431b-adc3-485cb5fedf04",
+                        "type": "place"
+                    }
+                }
+            }
+        }
+    ],
+    "meta": {
+        "pagination": {
+            "per_page": 25,
+            "current_page": 1,
+            "total_pages": 1,
+            "total_objects": 2
+        }
+    }
 }
 ```
 
-The information that comes from the people counter, for that location that you are selecting. <br>
-As presence data, you can see different data information, in hours or days, depending on the **'ref' param**.
+> Response JSON (Not aggregated):
 
-<aside class="notice">The information shown will be linked to the schedule of the configured location.</aside>
+```json
+{
+    "data": [
+        {
+            "id": "616f0487-e67f-4996-be49-485cb5fedf04",
+            "type": "graph",
+            "attributes": {
+                "values": {
+                    "2018-12-11": [
+                        {
+                            "name": "Place 1",
+                            "value": 310
+                        },
+                        {
+                            "name": "Place 2",
+                            "value": 415
+                        }
+                    ],
+                    "2018-12-12": [
+                        {
+                            "name": "Place 1",
+                            "value": 437
+                        },
+                        {
+                            "name": "Place 2",
+                            "value": 401
+                        }
+                    ]
+                }
+            },
+            "relationships": {
+                "places": {
+                    "data": [
+                        {
+                            "id": "11113d50-fdd8-4f5a-8ef1-485cb5fedf04",
+                            "type": "place"
+                        },
+                        {
+                            "id": "111495d3-fb83-431b-adc3-485cb5fedf04",
+                            "type": "place"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}
+```
+
+Allows obtaining a list of affluence analytics per organization which the user can access.
 
 ### HTTP Request
 
-- Default: `GET https://api.flameanalytics.com/v2/affluence/:market_id?from=:date`
-
-- Hours: `GET https://api.flameanalytics.com/v2/affluence/:market_id?from=:date&to=:date&res=1h`
-
-- Days: `GET https://api.flameanalytics.com/v2/affluence/:market_id?from=:date&to=:date&res=1d`
-
+- Default: `GET https://api.flameanalytics.com/v2/organizations/:organization_id/analytics/affluence?type=average_visits`
+- Not aggregated: `GET https://api.flameanalytics.com/v2/organizations/:organization_id/analytics/affluence?type=average_visits&aggregated=false`
+- Place ids: `GET https://api.flameanalytics.com/v2/organizations/:organization_id/analytics/affluence?type=average_visits&place_ids=:place_id,:place_id`
 
 ### Query parameters
 
 Parameter | Required | Description
 --------- | ------- | -----------
-place_id | <div class="red center">true</div> | Identifier of location
-from | <div class="red center">true</div> | **ISO 8601**, start date of the query interval. <br> If we just passed this parameter, the data returned is only from that day.
-to | <div class="center">false</div> | **ISO 8601**, end date of the query interval.
-res | <div class"center">false</div> | Data resoultion. It can be 1d (Day) or 1h (Hour). Default: 1d
+organization_id | true | Identification of an organization
+type | true | Indicates the type of analytic
+aggregated | false | Indicates if the analytic is aggregated, by default true
+place_ids | false | List of market ids
+date_from | false | **ISO 8601**, analytics from this day
+date_to | false | **ISO 8601**, analytics until this day
+page | false | Indicates de number page of list
+per_page | false | Indicates de number of objets per page
+
+### Type query options
+
+Type | Aggregated | Not aggregated | Description
+-----| ---------- | ------------- | -----------
+avg_visits_per_hour | true | true | Average visits per hour
+avg_visits_per_day| true | true | Average visits per day
+busiest_day | true | false | Busiest day
+busiest_hour | true | false | Busiest hour
+busiest_wday | true | false | Busiest week day
+visits | true | true | Visits
+outs | true | true | Outs
+average_visits | true | true | Average visits
+affluence_avg_occupation | true | true | Affluence average occupation
+affluence_max_occupation | true | true | Affluence maximum occupation
+affluence_accomplishment_occupation | true | true | Affluence accomplishment occupation
+abandonment_rate | true | true | Abandonment rate
+affluence_avg_stay_time | true | true | Affluence average stay time
+productivity | true | true | Productivity
 
 ### Return parameters
 
 Parameter | Type | Description
 --------- | ------- | -----------
-id | Integer | Identifier of location
-name | String | Name of location
-visits | Integer | Total visits, number of people entering the location that the camera detects
-hour_visits_avg | Decimal | Average of visits per hour, average number of visits in the location that the camera detects at hours
-day_visits_avg | Integer | Average of visits per day, average number of visits in the location that the camera detects in total day
-data | Array | The data divided by the data resolution indicated, can be divided into hours or days
-
-
-### Return data parameters
-
-Parameter | Type | Description
---------- | ------- | -----------
-date | Date | Date of current data, can be at hours or a specific day
-in | Integer | Number of visits that entered at a specific day or in an hour
-out | Integer | Number of visits that left at a specific day or in an hour
-
+id | Integer | Identifier of the analytic
+type | String | Type of the retrieve object
+attributes | Object | Attributes of the analytic
+name | String | Name of the analytic place
+value | Integer | Value of the analytic
+relationships | Object | Relationships of the analytic
+id | Integer | Id of the relationship object
+type | String | Type of the relationship object

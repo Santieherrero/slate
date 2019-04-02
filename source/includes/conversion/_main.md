@@ -1,12 +1,12 @@
-<h1 id="presence">Presence</h1>
+# Conversion
 
-<h2 id="presence-index">Index data</h2>
+<h2 id="conversion-index">Index data</h2>
 
 ```ruby
 require 'uri'
 require 'net/http'
 
-url = URI("https://api.flameanalytics.com/v2/organizations/7b85c755-aeba-482b-a07a-f375375c33e4/analytics/presence?type=capture_ratio")
+url = URI("https://api.flameanalytics.com/v2/organizations/7b85c755-aeba-482b-a07a-f375375c33e4/analytics/conversion?type=sales_amount")
 
 http = Net::HTTP.new(url.host, url.port)
 
@@ -21,7 +21,7 @@ puts response.read_body
 
 ```shell
 curl --request GET \
-  --url https://api.flameanalytics.com/v2/organizations/7b85c755-aeba-482b-a07a-f375375c33e4/analytics/presence?type=capture_ratio \
+  --url https://api.flameanalytics.com/v2/organizations/7b85c755-aeba-482b-a07a-f375375c33e4/analytics/conversion?type=sales_amount \
   --header 'Accept-Encoding: application/json' \
   --header 'Authorization: Token token=nugyUyuzq6nqvm_uiesD' \
   --header 'Content-Type: application/json'
@@ -30,7 +30,7 @@ curl --request GET \
 ```javascript
 var settings = {
   "crossDomain": true,
-  "url": "https://api.flameanalytics.com/v2/organizations/7b85c755-aeba-482b-a07a-f375375c33e4/analytics/presence?type=capture_ratio",
+  "url": "https://api.flameanalytics.com/v2/organizations/7b85c755-aeba-482b-a07a-f375375c33e4/analytics/conversion?type=sales_amount",
   "method": "GET",
   "headers": {
     "Content-Type": "application/json",
@@ -143,13 +143,13 @@ $.ajax(settings).done(function (response) {
 }
 ```
 
-Allows obtaining a list of presence analytics per organization which the user can access.
+Allows obtaining a list of conversion analytics per organization which the user can access.
 
 ### HTTP Request
 
-- Default: `GET https://api.flameanalytics.com/v2/organizations/:organization_id/analytics/presence?type=capture_ratio`
-- Not aggregated: `GET https://api.flameanalytics.com/v2/organizations/:organization_id/analytics/presence?type=capture_ratio&aggregated=false`
-- Place ids: `GET https://api.flameanalytics.com/v2/organizations/:organization_id/analytics/presence?type=capture_ratio&place_ids=:place_id,:place_id`
+- Default: `GET https://api.flameanalytics.com/v2/organizations/:organization_id/analytics/conversion?type=sales_amount`
+- Not aggregated: `GET https://api.flameanalytics.com/v2/organizations/:organization_id/analytics/conversion?type=sales_amount&aggregated=false`
+- Place ids: `GET https://api.flameanalytics.com/v2/organizations/:organization_id/analytics/conversion?type=sales_amount&place_ids=:place_id, :place_id`
 
 ### Query parameters
 
@@ -168,13 +168,10 @@ per_page | false | Indicates de number of objets per page
 
 Type | Aggregated | Not aggregated | Description
 -----| ---------- | ------------- | -----------
-capture_ratio | true | true | Capture ratio
-comeback_ratio | true | true | Comeback ratio
-comeback_visits | true | true | Comeback visits
-new_visits | true | true | New visits
-passersby | true | true | Passersby
-visits | true | true | Visits
-visits_duration | true | true | Visits duration
+avg_transaction_amount | true | true | Average transaction amount
+sales_amount | true | true | Sales amount
+number_of_transactions | true | true | Number of transactions
+ratio | true | true | Conversion ratio
 
 ### Return parameters
 

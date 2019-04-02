@@ -72,7 +72,7 @@ $.ajax(settings).done(function (response) {
 }
 ```
 
-Permits delete a user if the current user have permissions.
+Delete a user that belongs to your organization
 
 ### HTTP Request
 

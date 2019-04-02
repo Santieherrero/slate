@@ -5,14 +5,25 @@ def toc_data(page_content)
 
   # get a flat list of headers
   headers = []
-  html_doc.css('h1, h2, h3').each do |header|
-    headers.push({
-      id: header.attribute('id').to_s,
-      content: header.children,
-      title: header.children.to_s.gsub(/<[^>]*>/, ''),
-      level: header.name[1].to_i,
-      children: []
-    })
+  legends = []
+  html_doc.css('h1, legend,h2, h3').each do |header|
+    if header.attribute('class').to_s === 'menu-legend'
+      headers.push({
+        id: header.attribute('class').to_s,
+        content: header.children,
+        title: header.children.to_s.gsub(/<[^>]*>/, ''),
+        level: 1,
+        children: []
+      })
+    else
+      headers.push({
+        id: header.attribute('id').to_s,
+        content: header.children,
+        title: header.children.to_s.gsub(/<[^>]*>/, ''),
+        level: header.name[1].to_i,
+        children: []
+      })
+    end
   end
 
   [3,2].each do |header_level|
@@ -27,5 +38,8 @@ def toc_data(page_content)
       end
     end
   end
+
   headers
 end
+
+

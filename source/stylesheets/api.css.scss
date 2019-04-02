@@ -84,7 +84,7 @@ html, body {
     margin-top: 15px;
     margin-left: 35px;
   }
-  
+
   .docs {
     padding-left: 4px;
     font-size: 18px;
@@ -631,4 +631,21 @@ html, body {
 
 .highlight, .highlight .w {
   background-color: $code-bg;
+}
+
+.menu-legend span {
+    margin-left: 9px;
+    text-transform: capitalize;
+    color: #393f48;
+    cursor: default;
+}
+
+.menu-legend {
+  display: none;
+}
+
+li .menu-legend {
+    display: block;
+    border-bottom: 1px solid #ccc;
+    margin-top: 10px;
 }

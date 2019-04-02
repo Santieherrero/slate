@@ -73,7 +73,7 @@ $.ajax(settings).done(function (response) {
 }
 ```
 
-Allows obtaining a list of the users that the user can access.
+Allows to obtain a list of the users depending on the privileges and the organizations which you belong.
 
 ### HTTP Request
 

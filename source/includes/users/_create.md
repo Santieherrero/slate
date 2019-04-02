@@ -82,7 +82,9 @@ $.ajax(settings).done(function (response) {
 }
 ```
 
-Permits create a user if the current user have permissions
+Create a user in one of the organizations to which you belong, can specify which organizations you want to give access, using the 'organizations' parameter.
+
+If you do not specify an organization, it will be added to the first one you have established
 
 ### Password
 The password **it's not required for logged partner users**, if you don't set the password at request, this be generated automatically with a random password.

@@ -13,20 +13,31 @@ toc_footers:
 includes:
   - { authentication: [] }
   - { errors: [] }
-  - { organizations: [search, index, create, delete]}
+  - { pagination: [] }
+  - { "external_ids": [] }
+  - { legend: "Core resources"}
   - { users: [ index, show, create, update, delete]}
-  - { licenses: [index, create, update]}
+  - { organizations: [search, index, create, delete]}
   - { locations: [ search, index, create, delete] }
+  - { licenses: [index, create, update]}
+  - { legend: "analytics"}
+  - { "presence": [] }
+  - { "affluence": [] }
+  - { "conversion": [] }
+  - { legend: "Guest wifi"}
+  - { "wifi_users": [search, index] }
+  - { legend: "devices"}
   - { "access_points": [index, create, delete] }
-  - { presence: [] }
-  - { affluence: [] }
-  - { sensors: [ organizations, places ] }
-  - { "mac_blacklists": [index, create, delete] }
-  - { "guest_wifi_users": [search, index] }
   - { counters: [index, create, update, delete] }
   - { cameras: [index, show, create, delete] }
-  - { analytics: [presence, affluence, conversion] }
+  - { legend: "Tools"}
+  - { sensors: [ organizations, places ] }
   - { "sales_imports": [] }
+  - { "mac_blacklists": [index, create, delete] }
+  - { legend: "legacy"}
+  - { "presence_legacy": [] }
+  - { "affluence_legacy": [] }
+
 
 search: false
 ---

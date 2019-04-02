@@ -73,7 +73,7 @@ $.ajax(settings).done(function (response) {
 }
 ```
 
-Allows obtaining a user inside of your organization/s.
+Allows to visualize the properties of a chosen user, belonging to one of your organizations
 
 
 ### HTTP Request
