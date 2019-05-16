@@ -64,14 +64,14 @@ Permits to update a counter if the user has permissions.
 
 ### HTTP Request
 
-`PUT https://api.flameanalytics.com/v2/market_pecos/a12b3a58-118f-4d91-9d62-6fbfc88c9a15`
+`PUT https://api.flameanalytics.com/v2/market_pecos/:id`
 
 
 ### Query parameters
 
 Parameter | Required | Description
 --------- | ------- | -----------
-place_id | true | Identification of a place
+id | true | Identification of a counter
 identifier | false | Indicates the identifier of the counter
 mac_address | true | Indicates the mac of the counter
 ubication | false | Indicates the ubication of the object

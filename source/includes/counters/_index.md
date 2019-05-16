@@ -72,7 +72,7 @@ Allows obtaining a list of counters if the user has access.
 
 ### HTTP Request
 
-`GET https://api.flameanalytics.com/v2/places/13b1be27-0d31-4dff-aa11-27ec1d636ab3/market_pecos`
+`GET https://api.flameanalytics.com/v2/places/:place_id/market_pecos`
 
 ### Query parameters
 

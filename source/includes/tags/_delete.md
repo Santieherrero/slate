@@ -1,10 +1,10 @@
-## Delete access points
+## Delete tag
 
 ```ruby
 require 'uri'
 require 'net/http'
 
-url = URI("https://api.flameanalytics.com/v2/places/58805c2e-b96c-41a5-8542-fa11198556b3/access_points")
+url = URI("https://api.flameanalytics.com/v2/tags/a12b3a58-118f-4d91-9d62-6fbfc88c9a15")
 
 http = Net::HTTP.new(url.host, url.port)
 http.use_ssl = true
@@ -20,7 +20,7 @@ puts response.read_body
 
 ```shell
 curl --request DELETE \
-  --url https://api.flameanalytics.com/v2/places/58805c2e-b96c-41a5-8542-fa11198556b3/access_points \
+  --url https://api.flameanalytics.com/v2/tags/a12b3a58-118f-4d91-9d62-6fbfc88c9a15 \
   --header 'Authorization: Token token=nugyUyuzq6nqvm_uiesD' \
   --header 'Content-Type: application/json'
 ```
@@ -29,7 +29,7 @@ curl --request DELETE \
 var settings = {
   "async": true,
   "crossDomain": true,
-  "url": "https://api.flameanalytics.com/v2/places/58805c2e-b96c-41a5-8542-fa11198556b3/access_points",
+  "url": "https://api.flameanalytics.com/v2/tags/a12b3a58-118f-4d91-9d62-6fbfc88c9a15",
   "method": "DELETE",
   "headers": {
     "Content-Type": "application/json",
@@ -47,40 +47,32 @@ $.ajax(settings).done(function (response) {
 ```json
 {
     "data": {
-        "id": "5c1cdad1b7b3a15622e8bd26",
-        "type": "access_point",
+        "id": "a12b3a58-118f-4d91-9d62-6fbfc88c9a15",
+        "type": "tag",
         "attributes": {
-            "ap_mac": "00:11:22:33:11:22",
-            "name": "Test API",
-            "ubication": "Madrid",
-            "active": true,
-            "serial_number": "00-77777-000000"
+            "name": "Tag name"
         }
     }
 }
 ```
 
-Permits deleting an access point for the organization that you are pointing and if the user has access to it.
+Permits deleting a tag if the user has permissions for it.
 
 ### HTTP Request
 
-`DELETE https://api.flameanalytics.com/v2/places/:place_id/access_points`
+`DELETE https://api.flameanalytics.com/v2/tags/:id`
 
 ### Query Parameters
 
 Parameter | Required | Description
 --------- | ------- | -----------
-place_id | true | Identifier of an organization you are targeting
+id | true | Indicates the tag identifier
 
 ### Return parameters
 
 Parameter | Type | Description
 --------- | ------- | -----------
-id | Integer | Identifier of the access point
+id | Integer | Identifier of the deleted tag
 type | String | Type of the retrieve object
 attributes | Object | Attributes of that place
-ap_mac | String | Unique mac number of the device
-name | String |  Name for that access point
-ubication | String | Ubication for that access point
-active | Boolean | Indicates if the access point it's active
-serial_number | String | Serial number of the device
+name | String |  Name for the deleted tag

@@ -64,7 +64,7 @@ Allows creating a counter if the user has permissions.
 
 ### HTTP Request
 
-`POST https://api.flameanalytics.com/v2/places/13b1be27-0d31-4dff-aa11-27ec1d636ab3/market_pecos`
+`POST https://api.flameanalytics.com/v2/places/:place_id/market_pecos`
 
 
 ### Query parameters

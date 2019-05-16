@@ -34,6 +34,7 @@ includes:
   - { sensors: [ organizations, places ] }
   - { "sales_imports": [] }
   - { "mac_blacklists": [index, create, delete] }
+  - { "tags": [index, show, create, update, delete]}
   - { legend: "legacy"}
   - { "presence_legacy": [] }
   - { "affluence_legacy": [] }
