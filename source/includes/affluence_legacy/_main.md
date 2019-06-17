@@ -132,8 +132,8 @@ As presence data, you can see different data information, in hours or days, depe
 Parameter | Required | Description
 --------- | ------- | -----------
 place_id | <div class="red center">true</div> | Identifier of location
-from | <div class="red center">true</div> | **ISO 8601**, start date of the query interval. <br> If we just passed this parameter, the data returned is only from that day.
-to | <div class="center">false</div> | **ISO 8601**, end date of the query interval.
+from | <div class="red center">true</div> | **ISO 8601**, start date of the query interval.
+to | <div class="center">true</div> | **ISO 8601**, end date of the query interval.
 res | <div class"center">false</div> | Data resoultion. It can be 1d (Day) or 1h (Hour). Default: 1d
 
 ### Return parameters
