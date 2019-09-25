@@ -1,6 +1,4 @@
-<h1 id="affluence">Affluence</h1>
-
-<h2 id="affluence-index">Index data</h2>
+## Affluence data
 
 ```ruby
 require 'uri'
@@ -143,13 +141,34 @@ $.ajax(settings).done(function (response) {
 }
 ```
 
-Allows obtaining a list of affluence analytics per organization which the user can access.
+Allows obtaining a list of affluence analytics per organization which the user can access, this call have many options detailed below
 
 ### HTTP Request
 
-- Default: `GET https://api.flameanalytics.com/v2/organizations/:organization_id/analytics/affluence?type=average_visits`
-- Not aggregated: `GET https://api.flameanalytics.com/v2/organizations/:organization_id/analytics/affluence?type=average_visits&aggregated=false`
-- Place ids: `GET https://api.flameanalytics.com/v2/organizations/:organization_id/analytics/affluence?type=average_visits&place_ids=:place_id,:place_id`
+<h4 style="font-size: 14px;">Default:</h4>
+
+`GET https://api.flameanalytics.com/v2/organizations/:organization_id/analytics/affluence?type=average_visits` <br \>
+
+<h4 style="font-size: 14px;">Not aggregated:</h4>
+
+You can select if need a aggregated kpi or non aggregated (like graph) for affluence analytics
+
+`GET https://api.flameanalytics.com/v2/organizations/:organization_id/analytics/affluence?type=visits&aggregated=false` <br \>
+
+<h4 style="font-size: 14px;">Place ids:</h4>
+
+You can select what places want for the affluence analytics
+
+`GET https://api.flameanalytics.com/v2/organizations/:organization_id/analytics/affluence?type=average_visits&place_ids=:place_id,:place_id` <br \>
+
+<h4 style="font-size: 14px;">Resolution (1h or 1d):</h4>
+
+You can select what type of the resolution for return values, there are two types by hour **'res=1h'** or by date **'res=1d'**
+
+**Hours resolution (1h) only works when the data is not aggregated**
+
+`GET https://api.flameanalytics.com/v2/organizations/:organization_id/analytics/affluence?type=visits&aggregated=false&res=1h`
+ <br \>
 
 ### Query parameters
 
@@ -166,22 +185,22 @@ per_page | false | Indicates de number of objets per page
 
 ### Type query options
 
-Type | Aggregated | Not aggregated | Description
------| ---------- | ------------- | -----------
-avg_visits_per_hour | true | true | Average visits per hour
-avg_visits_per_day| true | true | Average visits per day
-busiest_day | true | false | Busiest day
-busiest_hour | true | false | Busiest hour
-busiest_wday | true | false | Busiest week day
-visits | true | true | Visits
-outs | true | true | Outs
-average_visits | true | true | Average visits
-affluence_avg_occupation | true | true | Affluence average occupation
-affluence_max_occupation | true | true | Affluence maximum occupation
-affluence_accomplishment_occupation | true | true | Affluence accomplishment occupation
-abandonment_rate | true | true | Abandonment rate
-affluence_avg_stay_time | true | true | Affluence average stay time
-productivity | true | true | Productivity
+Type | Aggregated | Not aggregated | Resolution | Description
+-----| ---------- | ------------- | ----------- | -----------
+avg_visits_per_hour | true | true | 1d or 1h | Average visits per hour
+avg_visits_per_day| true | true | 1d or 1h | Average visits per day
+busiest_day | true | false | 1d | Busiest day
+busiest_hour | true | false | 1d | Busiest hour
+busiest_wday | true | false | 1d | Busiest week day
+visits | true | true | 1d or 1h | Visits
+outs | true | true | 1d or 1h | Outs
+average_visits | true | true | 1d or 1h | Average visits
+affluence_avg_occupation | true | true | 1d | Affluence average occupation
+affluence_max_occupation | true | true | 1d | Affluence maximum occupation
+affluence_accomplishment_occupation | true | true | 1d | Affluence accomplishment occupation
+abandonment_rate | true | true | 1d | Abandonment rate
+affluence_avg_stay_time | true | true | 1d | Affluence average stay time
+productivity | true | true | 1d | Productivity
 
 ### Return parameters
 

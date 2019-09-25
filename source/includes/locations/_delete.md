@@ -11,7 +11,7 @@ http = Net::HTTP.new(url.host, url.port)
 http.use_ssl = true
 http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
-request = Net::HTTP::Post.new(url)
+request = Net::HTTP::Delete.new(url)
 request["Content-Type"] = 'application/json'
 request["Authorization"] = 'Token token=nugyUyuzq6nqvm_uiesD'
 
@@ -20,7 +20,7 @@ puts response.read_body
 ```
 
 ```shell
-curl --request POST \
+curl --request DELETE \
   --url https://api.flameanalytics.com/v2/organizations/7f029d8b-fbf1-4b93-95f8-476e8b7de2a2 \
   --header 'Authorization: Token token=nugyUyuzq6nqvm_uiesD' \
   --header 'Content-Type: application/json'
@@ -31,7 +31,7 @@ var settings = {
   "async": true,
   "crossDomain": true,
   "url": "https://api.flameanalytics.com/v2/organizations/7f029d8b-fbf1-4b93-95f8-476e8b7de2a2",
-  "method": "POST",
+  "method": "DELETE",
   "headers": {
     "Content-Type": "application/json",
     "Authorization": "Token token=nugyUyuzq6nqvm_uiesD"
@@ -66,7 +66,7 @@ Permits delete a place for the organization that you are pointing and the user h
 
 ### HTTP Request
 
-`POST https://api.flameanalytics.com/v2/organizations/:organization_id/places`
+`DELETE https://api.flameanalytics.com/v2/organizations/:organization_id/places`
 
 ### Query Parameters
 

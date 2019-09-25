@@ -1,6 +1,4 @@
-<h1 id="presence">Presence</h1>
-
-<h2 id="presence-index">Index data</h2>
+## Data presence
 
 ```ruby
 require 'uri'
@@ -10,7 +8,6 @@ url = URI("https://api.flameanalytics.com/v2/organizations/7b85c755-aeba-482b-a0
 
 http = Net::HTTP.new(url.host, url.port)
 
-request = Net::HTTP::Get.new(url)
 request = Net::HTTP::Get.new(url)
 request["Content-Type"] = 'application/json'
 request["Authorization"] = 'Token token=nugyUyuzq6nqvm_uiesD'
@@ -52,14 +49,15 @@ $.ajax(settings).done(function (response) {
             "id": "aa5f56e9-dd1a-4c57-ba43-6465068542b8",
             "type": "kpi",
             "attributes": {
+                "id": "11113d50-fdd8-4f5a-8ef1-485cb5fedf04",
                 "name": "Place 1",
                 "value": 725
             },
             "relationships": {
-                "place": {
+                "organization": {
                     "data": {
-                        "id": "11113d50-fdd8-4f5a-8ef1-485cb5fedf04",
-                        "type": "place"
+                        "id": "701d551d-8446-4335-a732-03ab475629a4",
+                        "type": "organization"
                     }
                 }
             }
@@ -68,14 +66,15 @@ $.ajax(settings).done(function (response) {
             "id": "baac906d-93ed-43d7-a5b0-03a7f3961ffe",
             "type": "kpi",
             "attributes": {
+                "id": "111495d3-fb83-431b-adc3-485cb5fedf04",
                 "name": "Place 2",
                 "value": 838
             },
             "relationships": {
-                "place": {
+                "organization": {
                     "data": {
-                        "id": "111495d3-fb83-431b-adc3-485cb5fedf04",
-                        "type": "place"
+                        "id": "701d551d-8446-4335-a732-03ab475629a4",
+                        "type": "organization"
                     }
                 }
             }
@@ -104,20 +103,24 @@ $.ajax(settings).done(function (response) {
                 "values": {
                     "2018-12-11": [
                         {
+                            "id": "11113d50-fdd8-4f5a-8ef1-485cb5fedf04",
                             "name": "Place 1",
                             "value": 310
                         },
                         {
+                            "id": "111495d3-fb83-431b-adc3-485cb5fedf04",
                             "name": "Place 2",
                             "value": 415
                         }
                     ],
                     "2018-12-12": [
                         {
+                            "id": "11113d50-fdd8-4f5a-8ef1-485cb5fedf04",
                             "name": "Place 1",
                             "value": 437
                         },
                         {
+                            "id": "111495d3-fb83-431b-adc3-485cb5fedf04",
                             "name": "Place 2",
                             "value": 401
                         }
@@ -125,17 +128,11 @@ $.ajax(settings).done(function (response) {
                 }
             },
             "relationships": {
-                "places": {
-                    "data": [
-                        {
-                            "id": "11113d50-fdd8-4f5a-8ef1-485cb5fedf04",
-                            "type": "place"
-                        },
-                        {
-                            "id": "111495d3-fb83-431b-adc3-485cb5fedf04",
-                            "type": "place"
-                        }
-                    ]
+                "organization": {
+                    "data": {
+                        "id": "701d551d-8446-4335-a732-03ab475629a4",
+                        "type": "organization"
+                    }
                 }
             }
         }
@@ -143,13 +140,36 @@ $.ajax(settings).done(function (response) {
 }
 ```
 
-Allows obtaining a list of presence analytics per organization which the user can access.
+Allows obtaining a list of presence analytics per organization which the user can access, this call have many options detailed below
 
 ### HTTP Request
 
-- Default: `GET https://api.flameanalytics.com/v2/organizations/:organization_id/analytics/presence?type=capture_ratio`
-- Not aggregated: `GET https://api.flameanalytics.com/v2/organizations/:organization_id/analytics/presence?type=capture_ratio&aggregated=false`
-- Place ids: `GET https://api.flameanalytics.com/v2/organizations/:organization_id/analytics/presence?type=capture_ratio&place_ids=:place_id,:place_id`
+<h4 style="font-size: 14px;">Default:</h4>
+
+`GET https://api.flameanalytics.com/v2/organizations/:organization_id/analytics/presence?type=capture_ratio`<br \>
+
+<h4 style="font-size: 14px;">Not aggregated:</h4>
+
+ You can select if need a aggregated kpi or non aggregated (like graph) for presence analytics
+
+`GET https://api.flameanalytics.com/v2/organizations/:organization_id/analytics/presence?type=capture_ratio&aggregated=false`<br \>
+
+<h4 style="font-size: 14px;">Place ids:</h4>
+
+You can select what places want for the presence analytics
+
+`GET https://api.flameanalytics.com/v2/organizations/:organization_id/analytics/presence?type=capture_ratio&place_ids=:place_id,:place_id`
+ <br \>
+
+<h4 style="font-size: 14px;">Resolution (1h or 1d):</h4>
+
+You can select what type of the resolution for return values, there are two types by hour **'res=1h'** or by date **'res=1d'**
+
+**Hours resolution (1h) only works when the data is not aggregated**
+
+`GET https://api.flameanalytics.com/v2/organizations/:organization_id/analytics/presence?type=capture_ratio&aggregated=false&res=1h`
+ <br \>
+
 
 ### Query parameters
 
@@ -166,15 +186,15 @@ per_page | false | Indicates de number of objets per page
 
 ### Type query options
 
-Type | Aggregated | Not aggregated | Description
------| ---------- | ------------- | -----------
-capture_ratio | true | true | Capture ratio
-comeback_ratio | true | true | Comeback ratio
-comeback_visits | true | true | Comeback visits
-new_visits | true | true | New visits
-passersby | true | true | Passersby
-visits | true | true | Visits
-visits_duration | true | true | Visits duration
+Type | Aggregated | Not aggregated | Resolution | Description
+-----| ---------- | ------------- | ----------- | -----------
+capture_ratio | true | true | 1d or 1h | Capture ratio
+comeback_ratio | true | true | 1d or 1h | Comeback ratio
+comeback_visits | true | true | 1d or 1h | Comeback visits
+new_visits | true | true | 1d or 1h | New visits
+passersby | true | true | 1d or 1h | Passersby
+visits | true | true | 1d or 1h | Visits
+visits_duration | true | true | 1d or 1h | Visits duration
 
 ### Return parameters
 

@@ -14,15 +14,14 @@ includes:
   - { authentication: [] }
   - { errors: [] }
   - { pagination: [] }
-  - { "external_ids": [] }
   - { legend: "Core resources"}
   - { users: [ index, show, create, update, delete]}
   - { organizations: [search, index, create, delete]}
   - { locations: [ search, index, create, delete] }
   - { licenses: [index, create, update]}
   - { legend: "analytics"}
-  - { "presence": [] }
-  - { "affluence": [] }
+  - { "presence": [ index ] }
+  - { "affluence": [ index ] }
   - { "conversion": [] }
   - { legend: "Guest wifi"}
   - { "wifi_users": [search, index] }
