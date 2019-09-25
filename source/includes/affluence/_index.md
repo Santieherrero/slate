@@ -54,10 +54,10 @@ $.ajax(settings).done(function (response) {
                 "value": 725
             },
             "relationships": {
-                "place": {
+                "organization": {
                     "data": {
-                        "id": "11113d50-fdd8-4f5a-8ef1-485cb5fedf04",
-                        "type": "place"
+                        "id": "701d551d-8446-4335-a732-03ab475629a4",
+                        "type": "organization"
                     }
                 }
             }
@@ -70,10 +70,10 @@ $.ajax(settings).done(function (response) {
                 "value": 838
             },
             "relationships": {
-                "place": {
+                "organization": {
                     "data": {
-                        "id": "111495d3-fb83-431b-adc3-485cb5fedf04",
-                        "type": "place"
+                        "id": "701d551d-8446-4335-a732-03ab475629a4",
+                        "type": "organization"
                     }
                 }
             }
@@ -123,17 +123,11 @@ $.ajax(settings).done(function (response) {
                 }
             },
             "relationships": {
-                "places": {
-                    "data": [
-                        {
-                            "id": "11113d50-fdd8-4f5a-8ef1-485cb5fedf04",
-                            "type": "place"
-                        },
-                        {
-                            "id": "111495d3-fb83-431b-adc3-485cb5fedf04",
-                            "type": "place"
-                        }
-                    ]
+                "organization": {
+                    "data": {
+                        "id": "701d551d-8446-4335-a732-03ab475629a4",
+                        "type": "organization"
+                    }
                 }
             }
         }
