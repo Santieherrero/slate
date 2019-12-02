@@ -24,7 +24,9 @@ includes:
   - { "affluence": [ index ] }
   - { "conversion": [] }
   - { legend: "Guest wifi"}
+  - { "wifi_experience": [index, show] }
   - { "wifi_users": [search, index] }
+  - { "vouchers": [index, create, update, delete] }
   - { legend: "devices"}
   - { "access_points": [index, create, delete] }
   - { counters: [index, create, update, delete] }
